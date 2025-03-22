@@ -1,73 +1,75 @@
-# Image-Reader
+# OCR Image Text Extraction and Analysis
 
 ## Overview
-Image-Reader is a web-based Optical Character Recognition (OCR) tool that extracts text from images using **Tesseract OCR** and **OpenCV**. It provides a simple and interactive interface to upload images and retrieve their textual content.
+This project provides multiple implementations for Optical Character Recognition (OCR) using Tesseract and enhances text processing with an LLM model. The project includes:
+- A **Flask-based web app** for image text extraction.
+- A **Streamlit-based interface** with LLM-powered text refinement.
+- A **command-line tool** to process images and PDFs.
 
 ## Features
-- 🖼️ **Upload Images**: Users can upload images to extract text.
-- 📄 **OCR Extraction**: Uses Tesseract OCR to process images and extract text.
-- 🌐 **Web Interface**: Built with Flask, HTML, and CSS for a smooth user experience.
-- 🔄 **Preprocessing**: Utilizes OpenCV for image enhancements to improve OCR accuracy.
-- 📂 **Secure File Handling**: Supports multiple image formats with size constraints.
-
-## Tech Stack
-- **Backend**: Flask, Python
-- **OCR Engine**: Tesseract OCR, OpenCV
-- **Frontend**: HTML, CSS
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/DYNOSuprovo/Image-Reader.git
-   cd Image-Reader
-   ```
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Install Tesseract OCR:
-   - **Windows**: Download and install from [Tesseract](https://github.com/UB-Mannheim/tesseract/wiki)
-   - **Linux/macOS**:
-     ```bash
-     sudo apt install tesseract-ocr  # Ubuntu
-     brew install tesseract  # macOS
-     ```
-
-## Usage
-1. Run the Flask application:
-   ```bash
-   python app.py
-   ```
-2. Open your browser and go to:
-   ```
-   http://127.0.0.1:5000
-   ```
-3. Upload an image and view the extracted text.
+- Extracts text from images using Tesseract OCR.
+- Supports multiple formats: PNG, JPG, JPEG, BMP, TIFF, and PDFs.
+- Provides a **Flask web interface** to upload images and view extracted text.
+- **Streamlit integration** for enhanced text processing with an LLM.
+- Uses **OpenCV preprocessing** to improve OCR accuracy.
 
 ## Project Structure
 ```
-Image-Reader/
-│── static/        # CSS & assets
-│── templates/     # HTML files
-│── uploads/       # Uploaded images
-│── app.py         # Main Flask application
-│── requirements.txt  # Dependencies
-│── README.md      # Project documentation
+📂 Project Folder
+├── app.py             # Flask Web App for OCR
+├── check.py           # Duplicate Flask App (can be removed)
+├── image_reader.py    # Command-line OCR tool for images and PDFs
+├── streamlitonly.py   # Streamlit-based OCR with LLM
+├── templates/
+│   ├── index.html     # Frontend HTML for Flask app
+├── static/
+│   ├── style.css      # CSS for web styling
+│   ├── uploads/       # Folder for uploaded images
+```
+
+## Installation
+### Prerequisites
+Ensure you have the following installed:
+- Python 3.x
+- [Tesseract-OCR](https://github.com/tesseract-ocr/tesseract) (Set the correct path in code)
+- Required Python Libraries:
+  ```sh
+  pip install flask streamlit pytesseract pillow opencv-python numpy pdf2image langchain_community
+  ```
+
+## Usage
+### Flask Web App
+Run the Flask application:
+```sh
+python app.py
+```
+Open `http://127.0.0.1:5000/` in your browser to upload images and extract text.
+
+### Streamlit Interface
+Run the Streamlit application:
+```sh
+streamlit run streamlitonly.py
+```
+Upload an image, extract text, and process it with an LLM.
+
+### Command-line OCR Tool
+Process an image or PDF via the terminal:
+```sh
+python image_reader.py
+```
+Enter the file path when prompted.
+
+## Configuration
+Ensure Tesseract is installed and update the path in the scripts:
+```python
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 ```
 
 ## Future Improvements
-- ✅ Improve text extraction accuracy using image pre-processing techniques.
-- ✅ Implement multi-language OCR support.
-- ✅ Add API support for automated text extraction.
+- Improve OCR accuracy with better preprocessing.
+- Add multilingual OCR support.
+- Integrate more advanced LLM models.
 
 ## License
-This project is open-source and available under the **MIT License**.
-
----
-💡 Contributions are welcome! Feel free to fork, modify, and improve the project. 🚀
+This project is open-source and available under the MIT License.
 
