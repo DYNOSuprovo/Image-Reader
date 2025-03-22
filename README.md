@@ -1,99 +1,73 @@
-# **OCR Image Processing Web App with Flask, Tesseract, and OpenCV**
+# Image-Reader
 
-## **📌 Overview**
+## Overview
+Image-Reader is a web-based Optical Character Recognition (OCR) tool that extracts text from images using **Tesseract OCR** and **OpenCV**. It provides a simple and interactive interface to upload images and retrieve their textual content.
 
-This project provides a **web-based OCR (Optical Character Recognition) tool** using **Flask**, **Tesseract OCR**, and **OpenCV**.  
-Users can **upload an image**, and the app extracts text from it, displaying results in an elegant and responsive UI.
+## Features
+- 🖼️ **Upload Images**: Users can upload images to extract text.
+- 📄 **OCR Extraction**: Uses Tesseract OCR to process images and extract text.
+- 🌐 **Web Interface**: Built with Flask, HTML, and CSS for a smooth user experience.
+- 🔄 **Preprocessing**: Utilizes OpenCV for image enhancements to improve OCR accuracy.
+- 📂 **Secure File Handling**: Supports multiple image formats with size constraints.
 
-## **🚀 Features**
+## Tech Stack
+- **Backend**: Flask, Python
+- **OCR Engine**: Tesseract OCR, OpenCV
+- **Frontend**: HTML, CSS
 
-✅ **Web-based UI** for uploading images  
-✅ **Tesseract OCR** for text extraction  
-✅ **OpenCV preprocessing** (grayscale conversion)  
-✅ **Mobile-friendly & responsive**  
-✅ **Dynamic file preview** before submission  
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/DYNOSuprovo/Image-Reader.git
+   cd Image-Reader
+   ```
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Install Tesseract OCR:
+   - **Windows**: Download and install from [Tesseract](https://github.com/UB-Mannheim/tesseract/wiki)
+   - **Linux/macOS**:
+     ```bash
+     sudo apt install tesseract-ocr  # Ubuntu
+     brew install tesseract  # macOS
+     ```
 
-## **🛠️ Requirements**
+## Usage
+1. Run the Flask application:
+   ```bash
+   python app.py
+   ```
+2. Open your browser and go to:
+   ```
+   http://127.0.0.1:5000
+   ```
+3. Upload an image and view the extracted text.
 
-Make sure you have the following installed:
-
-### **🔹 Python Packages**
-
-Install dependencies using:
-
-```bash
-pip install flask pytesseract opencv-python numpy pillow
+## Project Structure
+```
+Image-Reader/
+│── static/        # CSS & assets
+│── templates/     # HTML files
+│── uploads/       # Uploaded images
+│── app.py         # Main Flask application
+│── requirements.txt  # Dependencies
+│── README.md      # Project documentation
 ```
 
-### **🔹 Tesseract OCR Installation**
+## Future Improvements
+- ✅ Improve text extraction accuracy using image pre-processing techniques.
+- ✅ Implement multi-language OCR support.
+- ✅ Add API support for automated text extraction.
 
-#### **Windows**:
-1. Download and install Tesseract from [this link](https://github.com/UB-Mannheim/tesseract/wiki).
-2. Ensure Tesseract is added to your system PATH (`C:\Program Files\Tesseract-OCR\tesseract.exe`).
-
-#### **Linux (Ubuntu/Debian)**:
-```bash
-sudo apt install tesseract-ocr -y
-```
-
-#### **macOS**:
-```bash
-brew install tesseract
-```
+## License
+This project is open-source and available under the **MIT License**.
 
 ---
-
-## **📂 Project Structure**
-```
-OCR-Image-Processing/
-│── static/
-│   ├── style.css         # Styles for the UI
-│── templates/
-│   ├── index.html        # Main HTML file
-│── uploads/              # Stores uploaded images
-│── app.py                # Flask application
-│── README.md             # Project documentation
-```
-
----
-
-## **🖥️ Usage**
-
-1️⃣ **Run the Flask app**:
-```bash
-python app.py
-```
-
-2️⃣ **Open the browser and go to**:
-```
-http://127.0.0.1:5000/
-```
-
-3️⃣ **Upload an image** and click "Extract Text".
-
-4️⃣ **View the extracted text** on the same page.
-
----
-
-## **📌 Expected Output**
-
-🔹 **Uploaded Image Preview**  
-🔹 **Extracted Text Displayed in a Textbox**  
-
-```
-Extracted Text:
-[Recognized text from the image]
-```
-
----
-
-## **🛠️ Notes & Enhancements**
-- If OCR accuracy is **low**, try improving image quality or apply **thresholding**.
-- For **better OCR accuracy**, use Tesseract’s `tessdata_best` models from [here](https://github.com/tesseract-ocr/tessdata_best).
-- Customize the UI further in `static/style.css`.
-
----
-
-## **📝 License**
-This project is **open-source** and free to use. 🚀
+💡 Contributions are welcome! Feel free to fork, modify, and improve the project. 🚀
 
