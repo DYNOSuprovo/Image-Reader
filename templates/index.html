@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Image Reader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload an Image for OCR Processing</h2>
+        
+        <form method="post" enctype="multipart/form-data" id="uploadForm">
+            <div class="file-upload">
+                <label for="fileInput" class="custom-file-label">📂 Choose File</label>
+                <span id="fileName">No file chosen</span>
+            </div>
+            <input type="file" name="image" id="fileInput" required>
+            <button type="submit">Extract Text</button>
+        </form>
+
+        {% if image_url %}
+        <div class="image-preview">
+            <h3>Uploaded Image:</h3>
+            <img src="{{ image_url }}" alt="Uploaded Image">
+        </div>
+        {% endif %}
+
+        {% if ocr_text %}
+        <div class="text-output">
+            <h3>Extracted Text:</h3>
+            <textarea readonly>{{ ocr_text }}</textarea>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById("fileInput").addEventListener("change", function() {
+            let fileName = this.files[0] ? this.files[0].name : "No file chosen";
+            document.getElementById("fileName").textContent = fileName;
+        });
+
+        document.getElementById("uploadForm").addEventListener("submit", function() {
+            alert("Processing image... Please wait.");
+        });
+    </script>
+</body>
+</html>
